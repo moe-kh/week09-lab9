@@ -5,8 +5,9 @@
  */
 package services;
 
-import database.UserDB;
+import dataaccess.UserDB;
 import java.util.HashMap;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.User;
@@ -48,5 +49,26 @@ public class AccountService {
         }
 
         return null;
+    }
+    
+    public String resetPassword(String url)
+    {
+        String uuid = UUID.randomUUID().toString();
+        String link = url + "?uuid=" + uuid;
+        return link;
+    }
+    public boolean changePassword(String uuid, String password) {
+        UserService us = new UserService();
+        try {
+            User user = us.get(uuid);
+            user.setPassword(password);
+            user.setResetPasswordUID(null);
+            UserDB ur = new UserDB ();
+            ur.update(user);
+            return true;
+
+        } catch (Exception ex) {
+            return false;
+        }
     }
 }

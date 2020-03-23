@@ -5,7 +5,7 @@
  */
 package listeners;
 
-import database.DBUtil;
+import dataaccess.DBUtil;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 

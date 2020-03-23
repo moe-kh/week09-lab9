@@ -1,6 +1,6 @@
 package services;
 
-import database.UserDB;
+import dataaccess.UserDB;
 import models.User;
 import java.util.List;
 

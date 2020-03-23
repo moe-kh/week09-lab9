@@ -74,7 +74,7 @@ public class GmailService {
         // address the message
         Address fromAddress = new InternetAddress(username);
         Address toAddress = new InternetAddress(to);
-        message.setFrom(fromAddress);
+        //message.setFrom("cprg352@sait.ca");
         message.setRecipient(Message.RecipientType.TO, toAddress);
         
         // send the message
